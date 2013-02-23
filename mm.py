@@ -15,17 +15,11 @@ DEBUG = True
 
 @app.route('/')
 def home():
-    # os.chdir(os.path.join(APP_ROOT, 'markdown'))
-    # files_list = []
-    # for files in glob.glob("*.md"):
-    #     files_list.append(files.split(".")[0])
-    # content =''.join(files_list
     content = """#  Mymark
 
         markdown app
     """
     title ="mymark"
-
     return render_template('index.html', content=Markup(markdown.markdown(content)), title=title)
 
 
