@@ -8,7 +8,8 @@ import os
 import glob
 
 app = Flask(__name__)
-APP_ROOT = os.path.dirname(os.path.realpath(__file__)) #os.getcwd()
+APP_ROOT = os.path.dirname(os.path.realpath(__file__))
+DEBUG = True
 
 
 
@@ -56,4 +57,5 @@ def edit(md = 'index'):
         return render_template('form.html', content=content)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=DEBUG)
